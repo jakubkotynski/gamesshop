@@ -1,15 +1,40 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 03.03.2018
-  Time: 18:55
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Dodawanie konta klienta</title>
+    <link rel="stylesheet" href="../../resources/style.css" type="text/css">
 </head>
+
+
+<c:url var="saveCustomer" value="/addCustomer"/>
+<div class="container">
+    <form:form id="contact" method="get" modelAttribute="customer" action="${saveCustomer}">
+
+        <h3>Formularz Kursanta</h3>
+        <form:hidden path="id"/>
+        <fieldset>
+            <form:input placeholder="imię" path="firstName" required="true"/>
+        </fieldset>
+        <fieldset>
+            <form:input placeholder="nazwisko" path="lastName" required="true"/>
+        </fieldset>
+        <fieldset>
+            <form:input placeholder="adres" path="address" required="true" />
+        </fieldset>
+        <fieldset>
+            <form:input placeholder="e-mail" path="email" type="email" required="true" />
+        </fieldset>
+        <fieldset>
+            <input value="Dodaj" type="submit" name="submit">
+        </fieldset>
+    </form:form>
+</div>
 <body>
 
 </body>

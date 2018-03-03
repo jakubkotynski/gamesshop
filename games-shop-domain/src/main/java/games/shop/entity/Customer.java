@@ -1,3 +1,5 @@
+package games.shop.entity;
+
 public class Customer {
 
     private Long id;

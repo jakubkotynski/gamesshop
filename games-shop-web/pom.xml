@@ -15,6 +15,17 @@
 
     <dependencies>
         <dependency>
+            <groupId>pl.dimirhouse</groupId>
+            <artifactId>games-shop-domain</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
