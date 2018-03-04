@@ -8,7 +8,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Dodawanie konta klienta</title>
-    <link rel="stylesheet" href="../../resources/theme1/css/style.css" type="text/css">
+    <spring:url var="bootstrapCss" value="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="${bootstrapCss}">
+    <link rel="stylesheet" href="resources/theme1/css/style.css" type="text/css">
 </head>
 
 
@@ -16,7 +18,7 @@
 <div class="container">
     <form:form id="contact" method="get" modelAttribute="customer" action="${saveCustomer}">
 
-        <h3>Formularz Kursanta</h3>
+        <h3>Utwórz konto</h3>
         <form:hidden path="id"/>
         <fieldset>
             <form:input placeholder="imię" path="firstName" required="true"/>
