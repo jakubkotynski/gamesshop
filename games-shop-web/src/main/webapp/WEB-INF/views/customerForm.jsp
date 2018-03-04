@@ -14,9 +14,9 @@
 </head>
 
 
-<c:url var="saveCustomer" value="/addCustomer"/>
+<c:url var="saveCustomer" value="/saveCustomer"/>
 <div class="container">
-    <form:form id="contact" method="get" modelAttribute="customer" action="${saveCustomer}">
+    <form:form id="contact" method="post" modelAttribute="customer" action="${saveCustomer}">
 
         <h3>Utwórz konto</h3>
         <form:hidden path="id"/>

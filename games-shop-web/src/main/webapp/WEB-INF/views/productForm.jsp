@@ -14,9 +14,9 @@
 </head>
 
 
-<c:url var="saveProduct" value="/addProduct"/>
+<c:url var="saveProduct" value="/saveProduct"/>
 <div class="container">
-    <form:form id="contact" method="get" modelAttribute="product" action="${saveProduct}">
+    <form:form id="contact" method="post" modelAttribute="product" action="${saveProduct}">
 
         <h3>Dodawanie produktu</h3>
         <form:hidden path="id"/>
