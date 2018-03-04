@@ -1,6 +1,7 @@
 package controller;
 
 import games.shop.entity.Customer;
+import games.shop.entity.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -24,5 +25,13 @@ public class MainController {
         LOGGER.debug("add customer is executed!");
         model.addAttribute("customer", customer);
         return "customerForm";
+    }
+
+    @RequestMapping("/addProduct")
+    public String addProduct(@ModelAttribute Product product, Model model){
+
+        LOGGER.debug("add product is executed!");
+        model.addAttribute("product", product);
+        return "productForm";
     }
 }
