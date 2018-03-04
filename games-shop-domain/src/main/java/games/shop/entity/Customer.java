@@ -3,17 +3,16 @@ package games.shop.entity;
 public class Customer {
 
     private Long id;
+    private Long version;
     private String firstName;
     private String lastName;
     private String address;
     private String email;
 
     public Customer(){
-        super();
     }
 
-    public Customer(Long id, String firstName, String lastName, String address, String email) {
-        this.id = id;
+    public Customer(String firstName, String lastName, String address, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -26,6 +25,14 @@ public class Customer {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public String getFirstName() {

@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dodawanie konta klienta</title>
-    <link rel="stylesheet" href="../../resources/style.css" type="text/css">
+    <link rel="stylesheet" href="../../resources/theme1/css/style.css" type="text/css">
 </head>
 
 

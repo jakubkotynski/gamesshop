@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Product {
 
     private Long id;
+    private Long version;
     private String name;
     private String description;
     private String category;
@@ -12,11 +13,9 @@ public class Product {
     private int unitsInStock;
 
     public Product() {
-        super();
     }
 
-    public Product(Long id, String name, String description, String category, BigDecimal price, int unitsInStock) {
-        this.id = id;
+    public Product(String name, String description, String category, BigDecimal price, int unitsInStock) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -30,6 +29,14 @@ public class Product {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public String getName() {
