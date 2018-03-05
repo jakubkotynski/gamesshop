@@ -16,6 +16,14 @@
 
 <c:url var="saveProduct" value="/saveProduct"/>
 <div class="container">
+    <spring:url var="logoutUrl" value="/perform_logout"/>
+
+    <form:form method="post" action="${logoutUrl}" class="form-horizontal">
+        <button class="buttonLogout" type="submit">
+            Wyloguj
+        </button>
+    </form:form>
+
     <form:form id="contact" method="post" modelAttribute="product" action="${saveProduct}">
 
         <h3>Dodawanie produktu</h3>

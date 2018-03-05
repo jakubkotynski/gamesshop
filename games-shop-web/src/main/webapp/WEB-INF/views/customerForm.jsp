@@ -16,6 +16,14 @@
 
 <c:url var="saveCustomer" value="/saveCustomer"/>
 <div class="container">
+    <spring:url var="logoutUrl" value="/perform_logout"/>
+
+    <form:form method="post" action="${logoutUrl}" class="form-horizontal">
+        <button class="buttonLogout" type="submit">
+            Wyloguj
+        </button>
+    </form:form>
+
     <form:form id="contact" method="post" modelAttribute="customer" action="${saveCustomer}">
 
         <h3>Utwórz konto</h3>
