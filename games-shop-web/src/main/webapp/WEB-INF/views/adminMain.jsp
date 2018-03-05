@@ -25,15 +25,12 @@
         <div class="center">
             <form:form id="contact">
                 <h3>Panel Administratora</h3>
-                <button class="btn btn-primary" onclick="location.href='/addCustomer'">
+                <a href="<c:url value='/addCustomer'/>">
                     Dodaj użytkownika
-                </button>
-                <button class="btn btn-primary" onclick="location.href='/product'">
+                </a>
+                <a href="<c:url value='/addProduct'/>">
                     Dodaj towar
-                </button>
-                <button class="btn btn-primary" onclick="location.href='/#'">
-                    Pokaż statystyki
-                </button>
+                </a>
             </form:form>
         </div>
     </div>

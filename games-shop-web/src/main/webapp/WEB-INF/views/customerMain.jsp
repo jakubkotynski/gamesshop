@@ -1,16 +1,26 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 04.03.2018
-  Time: 13:18
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="pl">
 <html>
 <head>
-    <title>Title</title>
+    <title>Panel Klienta</title>
 </head>
 <body>
-
+<div class="middle">
+    <div class="center">
+        <form:form id="contact">
+            <h3>Panel Klienta</h3>
+            <button class="btn btn-primary" onclick="location.href='/#'">
+                Przeglądaj dostępne gry
+            </button>
+            <button class="btn btn-primary" onclick="location.href='/#'">
+                Wyświetl mój koszyk
+            </button>
+        </form:form>
+    </div>
 </body>
 </html>

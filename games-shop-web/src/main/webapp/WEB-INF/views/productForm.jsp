@@ -44,7 +44,7 @@
             <form:input placeholder="Dostępna ilość" path="unitsInStock" required="true" />
         </fieldset>
         <fieldset>
-            <input value="Dodaj" type="submit" name="submit">
+            <form:button type="submit" name="submit" class="btn btn-primary submitButton">Dodaj</form:button>
         </fieldset>
     </form:form>
 </div>
