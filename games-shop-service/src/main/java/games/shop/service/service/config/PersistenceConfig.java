@@ -1,4 +1,4 @@
-package service.config;
+package games.shop.service.service.config;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Value;

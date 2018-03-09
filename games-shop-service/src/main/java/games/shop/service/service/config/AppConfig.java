@@ -1,4 +1,4 @@
-package service.config;
+package games.shop.service.service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,7 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 
 @Configuration
 @Import(PersistenceConfig.class)
-@ComponentScan(basePackages = {"service.config"})
+@ComponentScan(basePackages = {"games.shop.service"})
 public class AppConfig {
 
     @Bean

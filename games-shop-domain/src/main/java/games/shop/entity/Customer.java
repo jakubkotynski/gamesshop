@@ -1,12 +1,37 @@
 package games.shop.entity;
 
+import org.hibernate.envers.Audited;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "CUSTOMER")
+@Audited
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Version
+    @Column(name = "LATEST_VERSION")
     private Long version;
+
+    @NotEmpty
+    @Column(name = "CUSTOMER_FIRSTNAME")
     private String firstName;
+
+    @NotEmpty
+    @Column(name = "CUSTOMER_LASTNAME")
     private String lastName;
+
+    @NotEmpty
+    @Column(name = "CUSTOMER_ADDRESS")
     private String address;
+
+    @NotEmpty
+    @Column(name = "CUSTOMER_EMAIL")
     private String email;
 
     public Customer(){
