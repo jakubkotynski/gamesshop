@@ -1,15 +1,42 @@
 package games.shop.entity;
 
+import org.hibernate.envers.Audited;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "PRODUCT")
+@Audited
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Version
+    @Column(name = "LATEST_VERSION")
     private Long version;
+
+    @NotEmpty
+    @Column(name = "PRODUCT_NAME")
     private String name;
+
+    @NotEmpty
+    @Column(name = "DESCRIPTION")
     private String description;
+
+    @NotEmpty
+    @Column(name = "CATEGORY")
     private String category;
+
+    @NotEmpty
+    @Column(name = "PRICE")
     private BigDecimal price;
+
+    @NotEmpty
+    @Column(name = "UNITS_IN_STOCK")
     private int unitsInStock;
 
     public Product() {

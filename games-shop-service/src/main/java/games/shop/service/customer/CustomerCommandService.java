@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -22,9 +23,38 @@ public class CustomerCommandService {
         this.customerRepository = customerRepository;
     }
 
-    public Long create(Customer customer) {
+    public Long createCustomer(Customer customer) {
         customerRepository.save(customer);
 
         return customer.getId();
+    }
+
+    public int customerCount(){
+        return customerRepository.findAll().size();
+    }
+
+    public List<Customer> showAllCustomers(){
+        return customerRepository.findAll();
+    }
+
+    public void updateCustomer(Customer customer){
+        Customer dbCustomer = customerRepository.findOne(customer.getId());
+        if(dbCustomer == null){
+            LOGGER.debug("Klient nie widnieje w bazie danych");
+        } else {
+            dbCustomer.setFirstName(customer.getFirstName());
+            dbCustomer.setLastName(customer.getLastName());
+            dbCustomer.setAddress(customer.getAddress());
+            dbCustomer.setEmail(customer.getEmail());
+        }
+    }
+
+    public void deleteCustomer(Long id){
+        Customer customer = customerRepository.findOne(id);
+        if(customer.getId() == null){
+            LOGGER.debug("Klient nie widnieje w bazie danych");
+        } else {
+            customerRepository.delete(customer);
+        }
     }
 }

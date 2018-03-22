@@ -22,18 +22,22 @@
             Wyloguj
         </button>
     </form:form>
-        <div class="center">
-            <form:form id="contact">
-                <h3>Panel Administratora</h3>
-                <a href="<c:url value='/addCustomer'/>">
-                    Dodaj użytkownika
-                </a>
-                <a href="<c:url value='/addProduct'/>">
-                    Dodaj towar
-                </a>
-            </form:form>
-        </div>
+    <div class="center">
+        <form:form id="contact">
+            <h3>Panel Administratora</h3>
+            <a href="<c:url value='/addCustomer'/>">
+                Dodaj użytkownika
+            </a>
+            <a href="<c:url value='/addProduct'/>">
+                Dodaj towar
+            </a>
+            <a class="tilelink" href="<c:url value='/showCustomers'/>">
+                <i class="icon-users-outline"></i></br>
+                Klienci sklepu
+            </a>
+        </form:form>
     </div>
+</div>
 </div>
 </body>
 
