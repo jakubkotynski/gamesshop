@@ -26,14 +26,16 @@
         <form:form id="contact">
             <h3>Panel Administratora</h3>
             <a href="<c:url value='/addCustomer'/>">
-                Dodaj użytkownika
+                Dodaj użytkownika<br>
             </a>
             <a href="<c:url value='/addProduct'/>">
-                Dodaj towar
+                Dodaj towar<br>
             </a>
             <a class="tilelink" href="<c:url value='/showCustomers'/>">
-                <i class="icon-users-outline"></i></br>
-                Klienci sklepu
+                Klienci sklepu<br>
+            </a>
+            <a class="tilelink" href="<c:url value='/showProducts'/>">
+                Wszystkie produkty<br>
             </a>
         </form:form>
     </div>
