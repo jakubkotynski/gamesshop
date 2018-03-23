@@ -1,5 +1,6 @@
-package config;
+package games.shop.web.config;
 
+import games.shop.service.service.config.AppConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -42,7 +43,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
     private AnnotationConfigWebApplicationContext getApplicationContext() {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(SecurityConfig.class);
-        context.register(WebConfig.class);
+        context.register(AppConfig.class);
 
         return context;
     }

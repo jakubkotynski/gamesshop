@@ -4,6 +4,7 @@ import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
@@ -31,18 +32,18 @@ public class Product {
     @Column(name = "CATEGORY")
     private String category;
 
-    @NotEmpty
+    @NotNull
     @Column(name = "PRICE")
     private BigDecimal price;
 
-    @NotEmpty
+    @NotNull
     @Column(name = "UNITS_IN_STOCK")
-    private int unitsInStock;
+    private Integer unitsInStock;
 
     public Product() {
     }
 
-    public Product(String name, String description, String category, BigDecimal price, int unitsInStock) {
+    public Product(String name, String description, String category, BigDecimal price, Integer unitsInStock) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -98,7 +99,7 @@ public class Product {
         this.price = price;
     }
 
-    public int getUnitsInStock() {
+    public Integer getUnitsInStock() {
         return unitsInStock;
     }
 

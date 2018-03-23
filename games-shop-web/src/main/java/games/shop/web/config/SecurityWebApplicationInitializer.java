@@ -1,4 +1,4 @@
-package config;
+package games.shop.web.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

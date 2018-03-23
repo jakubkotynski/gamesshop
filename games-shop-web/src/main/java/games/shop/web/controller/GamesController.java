@@ -1,6 +1,5 @@
-package controller;
+package games.shop.web.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import games.shop.entity.Product;
 import games.shop.service.product.ProductCommandService;
 import org.slf4j.Logger;

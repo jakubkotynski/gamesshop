@@ -1,4 +1,4 @@
-package dto;
+package games.shop.web.dto;
 
 public class LoginDTO {
 

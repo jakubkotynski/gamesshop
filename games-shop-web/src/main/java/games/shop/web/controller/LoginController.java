@@ -1,6 +1,6 @@
-package controller;
+package games.shop.web.controller;
 
-import dto.LoginDTO;
+import games.shop.web.dto.LoginDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

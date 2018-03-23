@@ -1,4 +1,4 @@
-package controller;
+package games.shop.web.controller;
 
 import games.shop.entity.Customer;
 import games.shop.service.customer.CustomerCommandService;

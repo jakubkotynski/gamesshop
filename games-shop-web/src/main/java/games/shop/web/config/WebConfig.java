@@ -1,4 +1,4 @@
-package config;
+package games.shop.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "controller")
+@ComponentScan(basePackages = "games.shop.web")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
