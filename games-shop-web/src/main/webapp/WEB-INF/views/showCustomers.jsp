@@ -16,6 +16,15 @@
                 <td>${customer.lastName}</td>
                 <td>${customer.email}</td>
                 <td>${customer.address}</td>
+                <spring:url value="/customer/edit/${customer.id}" var="customerEditUrl"/>
+                <spring:url value="/customer/delete/${customer.id}" var="customerDeleteUrl"/>
+
+                <button class="btn btn-info" onclick="location.href='${customerEditUrl}'">
+                    Edytuj
+                </button>
+                <button class="btn btn-info" onclick="location.href='${customerDeleteUrl}'">
+                    Usuń
+                </button>
             </tr>
         </c:forEach>
     </c:when>

@@ -50,11 +50,10 @@ public class CustomerCommandService {
     }
 
     public void deleteCustomer(Long id){
-        Customer customer = customerRepository.findOne(id);
-        if(customer.getId() == null){
-            LOGGER.debug("Klient nie widnieje w bazie danych");
-        } else {
-            customerRepository.delete(customer);
-        }
+        customerRepository.delete(id);
+    }
+
+    public Customer findCustomerById(Long id) {
+        return customerRepository.findOne(id);
     }
 }

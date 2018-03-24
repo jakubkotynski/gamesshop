@@ -17,7 +17,15 @@
                 <td>${product.description}</td>
                 <td>${product.price}</td>
                 <td>${product.unitsInStock}</td>
+                <spring:url value="/product/edit/${product.id}" var="productEditUrl"/>
+                <spring:url value="/product/delete/${product.id}" var="productDeleteUrl"/>
 
+                <button class="btn btn-info" onclick="location.href='${productEditUrl}'">
+                    Edytuj
+                </button>
+                <button class="btn btn-info" onclick="location.href='${productDeleteUrl}'">
+                    Usuń
+                </button>
             </tr>
         </c:forEach>
     </c:when>

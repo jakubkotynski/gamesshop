@@ -47,8 +47,10 @@ public class ProductCommandService {
     }
 
     public void deleteProduct(Long id){
-        Product product = productRepository.findOne(id);
+        productRepository.delete(id);
+    }
 
-        productRepository.delete(product);
+    public Product findProductById(Long id){
+        return productRepository.findOne(id);
     }
 }
