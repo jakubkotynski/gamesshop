@@ -18,8 +18,12 @@
     <form:form id="contact" method="post" modelAttribute="login" action="${login}">
 
         <h3>Logowanie</h3>
-        <form:input placeholder="username" path="username"/>
-        <form:input placeholder="hasło" path="password" type="password"/>
+        <fieldset>
+            <form:input placeholder="username" path="username"/>
+        </fieldset>
+        <fieldset>
+            <form:input placeholder="hasło" path="password" type="password"/>
+        </fieldset>
         <br>
         <form:button type="submit" name="submit" class="btn btn-primary submitButton">Zaloguj</form:button>
     </form:form>

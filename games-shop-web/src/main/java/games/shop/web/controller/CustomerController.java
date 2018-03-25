@@ -2,6 +2,8 @@ package games.shop.web.controller;
 
 import games.shop.entity.Customer;
 import games.shop.service.customer.CustomerCommandService;
+import games.shop.service.customer.CustomerQueryService;
+import games.shop.service.customer.dto.SearchCustomerDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +23,13 @@ public class CustomerController {
     private static final Logger LOGGER = LoggerFactory.getLogger(MainController.class);
 
     private final CustomerCommandService customerCommandService;
+    private final CustomerQueryService customerQueryService;
 
     @Autowired
-    public CustomerController(CustomerCommandService customerCommandService) {
+    public CustomerController(CustomerCommandService customerCommandService,
+                              CustomerQueryService customerQueryService) {
         this.customerCommandService = customerCommandService;
+        this.customerQueryService = customerQueryService;
     }
 
     @RequestMapping(value = "/addCustomer", method = RequestMethod.GET)
@@ -37,14 +42,17 @@ public class CustomerController {
 
     @RequestMapping(value = "/saveCustomer", method = RequestMethod.POST)
     public String saveCustomer(@ModelAttribute("customer") Customer customer, Model model){
-
-        int sizeBefore = customerCommandService.customerCount();
-        customerCommandService.createCustomer(customer);
-        int sizeAfter = customerCommandService.customerCount();
-        if(sizeBefore == sizeAfter){
-            model.addAttribute("info", "Nie udało się dodać klienta do bazy.");
+        if(customer.getId()==null) {
+            int sizeBefore = customerCommandService.customerCount();
+            customerCommandService.createCustomer(customer);
+            int sizeAfter = customerCommandService.customerCount();
+            if (sizeBefore == sizeAfter) {
+                model.addAttribute("info", "Nie udało się dodać klienta do bazy.");
+            } else {
+                model.addAttribute("info", "Udało się dodać klienta do bazy.");
+            }
         } else {
-            model.addAttribute("info", "Udało się dodać klienta do bazy.");
+            customerCommandService.updateCustomer(customer);
         }
         return "adminMain";
     }
@@ -67,5 +75,29 @@ public class CustomerController {
         redirectAttributes.addFlashAttribute("info", message);
 
         return "redirect:/showCustomers";
+    }
+
+    @RequestMapping(value = "/customer/edit/{id}")
+    public String editCustomer(@PathVariable("id") Long id, Model model){
+        Customer customer = customerCommandService.findCustomerById(id);
+        model.addAttribute("customer", customer);
+
+        return "customerForm";
+    }
+
+    @RequestMapping(value = "/findCustomer", method = RequestMethod.GET)
+    public String findCustomer(Model model){
+        model.addAttribute("searchCustomer", new SearchCustomerDTO());
+
+        return "findCustomer";
+    }
+
+    @RequestMapping(value = "/findCustomer", method = RequestMethod.POST)
+    public String findCustomerByLastName(@ModelAttribute SearchCustomerDTO searchCustomerDTO, Model model){
+        List<Customer> foundCustomer = customerQueryService.searchCustomer(searchCustomerDTO);
+        model.addAttribute("searchCustomer", new SearchCustomerDTO());
+        model.addAttribute("foundCustomer", foundCustomer);
+
+        return "findCustomer";
     }
 }

@@ -35,10 +35,20 @@ public class GamesController {
         return "productForm";
     }
 
-
     @RequestMapping(value = "/saveProduct", method = RequestMethod.POST)
-    public String saveProduct(@ModelAttribute("product") Product product){
-        productCommandService.createProduct(product);
+    public String saveProduct(@ModelAttribute("product") Product product, Model model){
+        if(product.getId()==null){
+            int sizeBefore = productCommandService.productCount();
+            productCommandService.createProduct(product);
+            int afterSize = productCommandService.productCount();
+            if(sizeBefore == afterSize){
+                model.addAttribute("info", "Nie udało się dodać klienta do bazy.");
+            } else {
+                model.addAttribute("info", "Udało się pomyślnie dodać klienta do bazy");
+            }
+        } else {
+            productCommandService.updateProduct(product);
+        }
 
         return "adminMain";
     }
@@ -58,5 +68,13 @@ public class GamesController {
         productCommandService.deleteProduct(id);
 
         return "redirect:/showProducts";
+    }
+
+    @RequestMapping(value = "/product/edit/{id}")
+    public String editProduct(@PathVariable("id") Long id, Model model){
+        Product product = productCommandService.findProductById(id);
+        model.addAttribute("product", product);
+
+        return "productForm";
     }
 }

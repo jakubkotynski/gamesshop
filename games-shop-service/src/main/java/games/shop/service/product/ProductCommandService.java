@@ -42,6 +42,10 @@ public class ProductCommandService {
         }
     }
 
+    public int productCount(){
+        return productRepository.findAll().size();
+    }
+
     public List<Product> showAllProducts(){
         return productRepository.findAll();
     }
@@ -53,4 +57,5 @@ public class ProductCommandService {
     public Product findProductById(Long id){
         return productRepository.findOne(id);
     }
+
 }
